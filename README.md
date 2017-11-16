@@ -16,7 +16,7 @@ Where `direction` is optional and can either be left out or be `"x"` or `"y"` to
 To use jquery.overflown, jQuery 1.7 or newer ist required and you'd include it in your document, something like this:
 
 	// load jQuery first
-	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 	// then load the .overflown() plugin
 	<script src="jquery.overflown.js"></script>
 
