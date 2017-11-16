@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8" />
+	<title>jquery.overflown demo</title>
+	
+	<style>
+		html {
+		  box-sizing: border-box;
+		  font-family: sans-serif;
+		}
+		*, *:before, *:after {
+		  box-sizing: inherit;
+		}
+		body{padding: 20px;}
+
+		ul#nav{
+			border: 1px solid black;
+			max-height: 48px;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+			position: relative;
+		}
+		ul#nav.overflown{
+			border: 1px solid red;
+		}
+		ul#nav li{
+			height: 48px;
+			line-height: 28px;
+			list-style-type: none;
+			float: left;
+			margin-right: .4em;
+			background-color: #f9f9f9;
+			padding: 10px;
+		}
+		ul#nav li:last-child{
+			margin-right: 0;
+		}
+		ul#nav .mobilemenu{
+			display: none;
+			border-left: .4em solid white;
+			font-size: 28px;
+			line-height: 22px;
+		}
+		ul#nav.overflown .mobilemenu{
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		
+	</style>
+	<script src="//code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="jquery.overflown.js"></script>
+</head>
+
+
+<body>
+	<h1>
+	jquery.overflown demo
+	</h1>
+	<p>
+		Change the width of your browser-window to see how the below list reacts when one of its children is overflowing.
+	</p>
+	<ul id="nav">
+		<li>Menu 1</li>
+		<li>Menu 2</li>
+		<li>Menu 3</li>
+		<li>Menu 4</li>
+		<li>Menu 5</li>
+		<li>Menu 6</li>
+		<li>Menu 7</li>
+		<li>Menu 8</li>
+		<li>Menu 9</li>
+		<li>Menu 10</li>
+		<li class="mobilemenu">≡</li>
+	</ul>
+	<p>
+	Is the List overflown? <span class="console">No</span>.
+	</p>
+	<p style="margin-top: 2em;">
+	 <a href="https://github.com/ZetaSoftware/jquery-overflown-plugin/tree/master">Usage and download</a>
+	</p>
+	
+	<script>
+		function setoverflown(){
+			$("span.console").html( $("#nav").overflown() ? "Yes" : "No" );
+		
+			if ( $("#nav").overflown() ){
+				$("#nav").addClass("overflown");
+			}
+			else{
+				$("#nav").removeClass("overflown");
+			}
+		}
+	
+		$(window).resize(function() {
+			setoverflown();
+		});	
+		$(document).ready(function() {
+			setoverflown();
+		});
+	</script>	
+</body>
+</html>
